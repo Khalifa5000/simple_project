@@ -1,3 +1,7 @@
+<?php
+include 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
 <div class="container">
     <h2 class="mb-3">Users List</h2>
 
-    <a href="add.html" class="btn btn-primary mb-3">Add New Item</a>
+    <a href="add.php" class="btn btn-primary mb-3">Add New Item</a>
 
     <table class="table table-bordered">
         <thead class="table-dark">
@@ -29,7 +33,7 @@
             <td>Mohamed Ali</td>
             <td>mohamed@example.com</td>
             <td>
-                <a href="edit.html" class="btn btn-warning btn-sm">Edit</a>
+                <a href="edit.php" class="btn btn-warning btn-sm">Edit</a>
                 <button class="btn btn-danger btn-sm">Delete</button>
             </td>
         </tr>
@@ -39,7 +43,7 @@
             <td>Ahmed Salah</td>
             <td>ahmed@example.com</td>
             <td>
-                <a href="edit.html" class="btn btn-warning btn-sm">Edit</a>
+                <a href="edit.php" class="btn btn-warning btn-sm">Edit</a>
                 <button class="btn btn-danger btn-sm">Delete</button>
             </td>
         </tr>

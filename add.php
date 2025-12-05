@@ -1,25 +1,29 @@
+<?php
+include 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Item - Static</title>
+    <title>Add Item - Static</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light p-4">
 
 <div class="container">
-    <h2 class="mb-3">Edit Item (Static)</h2>
+    <h2 class="mb-3">Add New User</h2>
 
-    <form class="card p-3">
+    <form action="UserController.php" method="post" class="card p-3">
         <label class="form-label">Name</label>
-        <input type="text" class="form-control mb-3" value="Mohamed Ali">
+        <input type="text" class="form-control mb-3">
 
         <label class="form-label">Email</label>
-        <input type="email" class="form-control mb-3" value="mohamed@example.com">
+        <input type="email" class="form-control mb-3">
 
-        <button class="btn btn-warning" type="button">Update</button>
-        <a href="index.html" class="btn btn-secondary">Back</a>
+        <button class="btn btn-success mb-3" type="submit">Add</button>
+        <a href="index.php" class="btn btn-secondary">Back</a>
     </form>
 </div>
 
