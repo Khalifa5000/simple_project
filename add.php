@@ -17,10 +17,10 @@ include 'connect.php';
 
     <form action="UserController.php" method="post" class="card p-3">
         <label class="form-label">Name</label>
-        <input type="text" class="form-control mb-3">
+        <input type="text" name="name" class="form-control mb-3">
 
         <label class="form-label">Email</label>
-        <input type="email" class="form-control mb-3">
+        <input type="email" name="email" class="form-control mb-3">
 
         <button class="btn btn-success mb-3" type="submit">Add</button>
         <a href="index.php" class="btn btn-secondary">Back</a>
