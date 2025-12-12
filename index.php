@@ -1,5 +1,9 @@
 <?php
 include 'connect.php';
+
+$stmt = $pdo->query('SELECT * FROM users');
+$users = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +32,18 @@ include 'connect.php';
         </thead>
 
         <tbody>
+            <?php foreach ($users as $user): ?>
+
         <tr>
-            <td>1</td>
-            <td>Mohamed Ali</td>
-            <td>mohamed@example.com</td>
+            <td><?php echo $user['ID']; ?></td>
+            <td><?php echo $user['Name']; ?></td>
+            <td><?php echo $user['E_mail']; ?></td>
             <td>
                 <a href="edit.php" class="btn btn-warning btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm">Delete</button>
+                <a href="UserController.php?delete=<?php echo $user['ID']; ?>" class="btn btn-danger btn-sm">Delete</a>
             </td>
         </tr>
-
+<!-- 
         <tr>
             <td>2</td>
             <td>Ahmed Salah</td>
@@ -46,7 +52,9 @@ include 'connect.php';
                 <a href="edit.php" class="btn btn-warning btn-sm">Edit</a>
                 <button class="btn btn-danger btn-sm">Delete</button>
             </td>
-        </tr>
+        </tr> -->
+        <?php endforeach; ?>
+
         </tbody>
     </table>
 </div>

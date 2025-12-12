@@ -2,6 +2,25 @@
 
     include 'connect.php';
 
+    if (isset($_GET['delete'])) {
+        $id = $_GET['delete'];
+
+       try {
+        $stmt = $pdo->prepare('DELETE FROM users WHERE ID = ?');
+        $stmt->execute([$id]);
+
+        header("Location: index.php");
+
+        echo "<br>" . "User with ID $id deleted successfully.";
+
+
+    } catch (Exception $e) {
+        echo "<br>" . "Error deleting user: " . $e->getMessage();
+    }
+        exit;
+    }
+
+
     $name = $_POST['name']??'';
     $email = $_POST['email']??'';
 
@@ -15,19 +34,23 @@
  
     $count = $stmt->rowCount();
 
-    echo $count;
-
+  if ($count > 0) {
+        echo "<br>" . "A user with this email already exists.";
+        exit;
+    }   
 
 
     if ($name && $email) {
  
-
+         try {
         $stmt = $pdo->prepare('INSERT INTO users (Name, E_mail) VALUES (?, ?)');
         $stmt->execute([$name, $email]);
 
         echo "<br>" . "New user added successfully.";
-    } else {
-        echo "<br>" . "Name and Email are required." . $e->getMessage();
+        header("Location: index.php");
+    } catch (Exception $e) {
+        echo "<br>" . "Error adding user: " . $e->getMessage();
     }
+}
 
 ?>
