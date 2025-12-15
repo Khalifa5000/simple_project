@@ -11,7 +11,7 @@
 
         header("Location: index.php");
 
-        echo "<br>" . "User with ID $id deleted successfully.";
+        // echo "<br>" . "User with ID $id deleted successfully.";
 
 
     } catch (Exception $e) {
